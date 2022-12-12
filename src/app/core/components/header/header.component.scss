@@ -1,0 +1,32 @@
+mat-toolbar {
+  display: flex;
+  padding: 2rem;
+  background-color: rgb(81, 81, 81);
+  gap: 1rem;
+  & a:not(:first-child) {
+    padding: 1rem;
+    color: rgb(170, 165, 165);
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgb(101, 101, 101);
+    }
+    &.active {
+      color: white;
+    }
+  }
+  & a:first-child {
+    margin-right: 0.5rem;
+  }
+  & svg {
+    margin-top: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    & path {
+      fill: white;
+    }
+  }
+}

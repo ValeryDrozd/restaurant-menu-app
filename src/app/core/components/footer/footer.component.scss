@@ -1,0 +1,36 @@
+.footer-block {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgb(81, 81, 81);
+  gap: 0.1rem;
+  color: white;
+  & > button {
+    margin: 0 auto;
+  }
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+
+  & span {
+    text-align: center;
+    font-size: 0.75rem;
+    padding-top: 0.25rem;
+    margin: 0;
+  }
+}
+
+.contact-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  & img {
+    margin-top: 0.25rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+}

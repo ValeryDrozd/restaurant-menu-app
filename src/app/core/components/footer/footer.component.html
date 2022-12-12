@@ -1,1 +1,21 @@
-<p>footer works!</p>
+<div class="footer-block">
+  <button mat-raised-button (click)="onSubscribe()">
+    {{
+      !subscibed
+        ? "Subscribe for discounts"
+        : "Thank you for your subscription!"
+    }}
+  </button>
+  <div class="contact-block">
+    <a href="https://www.instagram.com/lleradrozd/" target="_blank">
+      <img src="assets/instagram-logo.svg"
+    /></a>
+    <a href="https://t.me/She_is_Fury" target="_blank"
+      ><img src="assets/telegram-logo.svg" />
+    </a>
+  </div>
+  <div class="text-block">
+    <span>© 2002 - 2022 Restaurant-App</span>
+    <span>All rights reserved.</span>
+  </div>
+</div>
