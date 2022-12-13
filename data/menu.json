@@ -15,7 +15,7 @@
       "id": 94298,
       "name": "3 Chicken Wings",
       "description": "Tender, Spicy and Juicy. Original or Peri-Crusted",
-      "images": [],
+      "image": "https://images.nandos.co.za/MW_IMAGES_MU/955faf84-6c35-49a9-88f6-fc7ba50081a0",
       "categoryId": 26576,
       "price": 250
     },
@@ -23,31 +23,31 @@
       "id": 94301,
       "name": "Chicken Livers and Portuguese Roll",
       "description": "Chicken Livers Topped with PERi-PERi Sauce, Served with A Roll To Soak Up The Sauce",
-      "images": [],
+      "image": "https://taste.co.za/wp-content/uploads/2020/01/Peri-peri-chicken-livers-400x400.jpg.webp",
       "categoryId": 26576,
       "price": 250
     },
     {
       "id": 94304,
-      "name": "Spicy Mixed Olives (V)",
+      "name": "Spicy Mixed Olives",
       "description": "Co-Starring Garlic, Pepper and Chili",
-      "images": [],
+      "image": "https://i0.wp.com/www.holajalapeno.com/wp-content/uploads/2020/05/Spicy-Marinated-Olives-with-Herbs.jpg?resize=1200%2C1800&ssl=1",
       "categoryId": 26576,
       "price": 215
     },
     {
       "id": 94307,
-      "name": "Hummus with PERI-PERI Drizzle (V)",
+      "name": "Hummus with PERI-PERI Drizzle",
       "description": "Pour Smoky PERi-PERi Oil Over Creamy Hummus and Dig in with Strips Of Warm Pita",
-      "images": [],
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/07/b5/cd/44/hummus-with-peri-peri.jpg",
       "categoryId": 26576,
       "price": 215
     },
     {
       "id": 94310,
-      "name": "Red Pepper Dip (V)",
+      "name": "Red Pepper Dip",
       "description": "Dive Into Temping Roasted Red Pepper and Chili Spice Dip with Warm Pita Strips",
-      "images": [],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUa7MtbItBlJz0VCkF_wGrxMhS508flXG8tQ&usqp=CAU",
       "categoryId": 26576,
       "price": 205
     },
@@ -55,23 +55,23 @@
       "id": 94313,
       "name": "Appeteaser Platter",
       "description": "Choose any Three Appeteasers",
-      "images": [],
+      "image": "https://cdn.shopify.com/s/files/1/1345/2373/products/Appetizer-Platter_clip_web_580x@2x.jpg?v=1571691460",
       "categoryId": 26576,
       "price": 615
     },
     {
       "id": 94316,
-      "name": "All Together Now (V)",
+      "name": "All Together Now",
       "description": "Spicy Mixed Olives, Red Pepper Dip, Hummus with PERi-PERi Drizzle and Warm Pita Strips",
-      "images": [],
+      "image": "https://images.squarespace-cdn.com/content/v1/5a2488598a02c7c08b0db4bb/1657709756724-AI1IP85R0B0VIDJSKH1P/DSC_7452.jpg",
       "categoryId": 26576,
       "price": 520
     },
     {
       "id": 94334,
-      "name": "PERi-PERi Wedges (P)",
+      "name": "PERi-PERi Wedges",
       "description": "",
-      "images": [],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeB8lGRQ8qCt0PLfNOKvoMqY2fnzigJi3wYjffkJkLEneMeVS4x3nB9TGWwQ1NMdyQ3M8&usqp=CAU",
       "categoryId": 26582,
       "price": 190
     },
@@ -79,7 +79,7 @@
       "id": 94337,
       "name": "Corn-On-The-Cob",
       "description": "",
-      "images": [],
+      "image": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2020%2F07%2F06%2Fhot-cheetos-corn-dcms-large-2000.jpg&q=60",
       "categoryId": 26582,
       "price": 190
     },
@@ -87,7 +87,7 @@
       "id": 94349,
       "name": "1/4 Chicken",
       "description": "Quarter Chicken Marinated with PERi-PERi Sauce and Grilled",
-      "images": [],
+      "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/5/13/0/CC-Kevin-Gillespie_Lemon-Grilled-Chicken_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371597499991.jpeg",
       "categoryId": 26588,
       "price": 385
     },
@@ -95,15 +95,15 @@
       "id": 94352,
       "name": "1/2 Chicken",
       "description": "Half Chicken Marinated with PERi-PERi Sauce and Grilled",
-      "images": [],
+      "image": "https://cdn1.jernejkitchen.com/sites/default/files/roasted-chicken-halves-02-jernejkitchen.jpg",
       "categoryId": 26588,
       "price": 685
     },
     {
       "id": 94355,
       "name": "5 Chicken Wings",
-      "description": "Original Flavours or PERi-PEREi Crusted (P)",
-      "images": [],
+      "description": "Original Flavours or PERi-PEREi Crusted",
+      "image": "https://img.jamieoliver.com/home/wp-content/uploads/2021/06/JO_Easy5_HERO_Sticky_Chicken_Wings_019.jpeg",
       "categoryId": 26588,
       "price": 475
     },
@@ -111,7 +111,7 @@
       "id": 94358,
       "name": "Wing Roulette",
       "description": "10 Wings in PERi-PERi Flavors",
-      "images": [],
+      "image": "https://i.ytimg.com/vi/YBUZNY-H47A/maxresdefault.jpg",
       "categoryId": 26588,
       "price": 750
     },
@@ -119,7 +119,7 @@
       "id": 94361,
       "name": "Whole Chicken",
       "description": "Whole Chicken Marinated in PERi-PERi Sauce and Grilled",
-      "images": [],
+      "image": null,
       "categoryId": 26588,
       "price": 1350
     },
@@ -127,7 +127,7 @@
       "id": 94364,
       "name": "Chicken Butterfly",
       "description": "Succulent Double Chicken Breast in Crispy Skin",
-      "images": [],
+      "image": "https://whereismyspoon.co/wp-content/uploads/2021/03/nando-butterfly-chicken-02.jpg.webp",
       "categoryId": 26588,
       "price": 495
     },
@@ -135,7 +135,7 @@
       "id": 94367,
       "name": "Espetada",
       "description": "Tender Marinated Chicken Thighs and Fresh Peppers, Served on a Skewer",
-      "images": [],
+      "image": "https://impalavleis.co.za/wp-content/uploads/2022/06/Espetada-Kebabs-1024x768.jpg",
       "categoryId": 26588,
       "price": 695
     },
@@ -143,7 +143,7 @@
       "id": 94370,
       "name": "Espetada Carnival",
       "description": "Flame-Grilled PERi-PERi Thighs, Stuffed with Feta and Parsley, Skewered with Mixed Peppers",
-      "images": [],
+      "image": null,
       "categoryId": 26588,
       "price": 825
     },
@@ -151,7 +151,7 @@
       "id": 94373,
       "name": "Grilled Chicken Tenders",
       "description": "Juicy and Tender, Delicious with All Sides",
-      "images": [],
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/11/31/0f/50/espetada-with-2-regular.jpg",
       "categoryId": 26588,
       "price": 200
     },
@@ -159,7 +159,7 @@
       "id": 94379,
       "name": "Full Platter",
       "description": "For 3-4 People, Whole Chicken with  2 Large or 4 Regular Rides",
-      "images": [],
+      "image": null,
       "categoryId": 26594,
       "price": 1765
     },
@@ -167,7 +167,7 @@
       "id": 94382,
       "name": "No Bones Platter",
       "description": "For 2-3 People, Chicken Butterfly and a Espetada, with 2 Large or 4 Regular Sides",
-      "images": [],
+      "image": null,
       "categoryId": 26594,
       "price": 1550
     },
@@ -175,7 +175,7 @@
       "id": 94385,
       "name": "Jumbo Platter",
       "description": "For 4-6 People, 2 Whole Chickens and 5 Large Sides",
-      "images": [],
+      "image": null,
       "categoryId": 26594,
       "price": 3595
     },
@@ -183,7 +183,7 @@
       "id": 94399,
       "name": "Dessert",
       "description": "",
-      "images": [],
+      "image": null,
       "categoryId": 26600,
       "price": 230
     },
@@ -191,7 +191,7 @@
       "id": 94319,
       "name": "PERi-PERi Chips (P)",
       "description": "Crunchy Chips with PERi-PERi Sauce",
-      "images": [],
+      "image": null,
       "categoryId": 26579,
       "price": 130
     },
@@ -199,7 +199,7 @@
       "id": 94322,
       "name": "Spicy Rice",
       "description": "Spicy fried rice",
-      "images": [],
+      "image": null,
       "categoryId": 26579,
       "price": 130
     },
@@ -207,7 +207,7 @@
       "id": 94325,
       "name": "Coleslaw (M)",
       "description": "Cabbage, Carrot, Nando&amp;#039;s Special Mayonnaise",
-      "images": [],
+      "image": null,
       "categoryId": 26579,
       "price": 130
     },
@@ -215,7 +215,7 @@
       "id": 94328,
       "name": "Grilled Veg",
       "description": "Grilled Assorted Vegetables",
-      "images": [],
+      "image": null,
       "categoryId": 26579,
       "price": 130
     },
@@ -223,7 +223,7 @@
       "id": 94331,
       "name": "Garlic Bread",
       "description": "Toasted Garlic Flavored Bread",
-      "images": [],
+      "image": null,
       "categoryId": 26579,
       "price": 130
     },
@@ -231,7 +231,7 @@
       "id": 94340,
       "name": "Portuguese Salad",
       "description": "Fresh Tomato, Nando&amp;#039;s Peri-Olives, Mixed Peppers, Cucumber and Onion on A Bed of Crisp Lettuce",
-      "images": [],
+      "image": null,
       "categoryId": 26585,
       "price": 245
     },
@@ -239,7 +239,7 @@
       "id": 94343,
       "name": "Mediterranean Salad",
       "description": "Piccolo Tomato, Cucumber, Sweet Peppers and Mixed Leaves. Sprinkled with Olives and Feta Cheese",
-      "images": [],
+      "image": null,
       "categoryId": 26585,
       "price": 350
     },
@@ -247,7 +247,7 @@
       "id": 94346,
       "name": "Caesar Salad (M)",
       "description": "Cos Lettuce Sprinkled with Parmesan Cheese, Caesar Dressing and Crunchy Croutons",
-      "images": [],
+      "image": null,
       "categoryId": 26585,
       "price": 245
     },
@@ -255,7 +255,7 @@
       "id": 94376,
       "name": "Cataplana Algarve",
       "description": "PERi-PERi Chicken Thighs, Mixed Peppers, Chickpeas, Spicy Rice and Cataplana Sauce",
-      "images": [],
+      "image": null,
       "categoryId": 26591,
       "price": 795
     },
@@ -263,7 +263,7 @@
       "id": 94388,
       "name": "Chicken Wrap (Y)",
       "description": "A Lightly Toasted Wrap, Generously Filled With Tender Chicken, Chili Jam, Green Leaf Lettuce and Tangy Yoghurt Sauce",
-      "images": [],
+      "image": null,
       "categoryId": 26597,
       "price": 335
     },
@@ -271,7 +271,7 @@
       "id": 94391,
       "name": "Chicken Breast Burger (M)",
       "description": "Served on A Toasted Portuguese Roll with Fresh Rocket, Tomato, Pickled Red Onions and Perinaise",
-      "images": [],
+      "image": null,
       "categoryId": 26597,
       "price": 335
     },
@@ -279,7 +279,7 @@
       "id": 94394,
       "name": "Chicken Caesar Wrap (M)",
       "description": "Served in A Toasted Wrap Full Of PERi-PERi Chicken, Crunchy Croutons, Parmesan Cheese and Sundried Tomatoes, All Smothered in Creamy Caesar Dressing",
-      "images": [],
+      "image": null,
       "categoryId": 26597,
       "price": 335
     },
@@ -287,7 +287,7 @@
       "id": 94397,
       "name": "Chicken Pita (M)",
       "description": "Served in A Lightly Toasted Pita, Stuffed With Chicken Tenders, Crisp Veggie Salad and Creamy Whip",
-      "images": [],
+      "image": null,
       "categoryId": 26597,
       "price": 335
     }

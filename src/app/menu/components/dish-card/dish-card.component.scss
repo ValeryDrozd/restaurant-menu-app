@@ -1,6 +1,6 @@
 .card-block {
   width: 20rem;
-  height: 25rem;
+  height: 27rem;
   margin: 1rem;
   padding: 0;
   justify-content: center;
@@ -22,6 +22,15 @@ mat-card-header {
 
   &.title {
     min-height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & mat-card-title {
+      font-size: 1.5rem;
+    }
+  }
+  &.price-value {
+    margin-top: auto;
   }
 }
 
@@ -41,8 +50,5 @@ button {
   width: 10rem;
   height: 10rem;
   border: 1px solid white;
-}
-
-mat-card-actions {
-  margin-top: auto;
+  object-fit: cover;
 }
