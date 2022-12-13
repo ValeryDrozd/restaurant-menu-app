@@ -1,0 +1,295 @@
+{
+  "categories": [
+    { "name": "Appeteasers", "id": 26576 },
+    { "name": "Fino sides", "id": 26582 },
+    { "name": "Peri-peri chicken", "id": 26588 },
+    { "name": "Sharing platters", "id": 26594 },
+    { "name": "Dessert", "id": 26600 },
+    { "name": "Sides", "id": 26579 },
+    { "name": "Salads", "id": 26585 },
+    { "name": "Try someting new", "id": 26591 },
+    { "name": "Burgers, pitas, wraps", "id": 26597 }
+  ],
+  "dishes": [
+    {
+      "id": 94298,
+      "name": "3 Chicken Wings",
+      "description": "Tender, Spicy and Juicy. Original or Peri-Crusted",
+      "images": [],
+      "categoryId": 26576,
+      "price": 250
+    },
+    {
+      "id": 94301,
+      "name": "Chicken Livers and Portuguese Roll",
+      "description": "Chicken Livers Topped with PERi-PERi Sauce, Served with A Roll To Soak Up The Sauce",
+      "images": [],
+      "categoryId": 26576,
+      "price": 250
+    },
+    {
+      "id": 94304,
+      "name": "Spicy Mixed Olives (V)",
+      "description": "Co-Starring Garlic, Pepper and Chili",
+      "images": [],
+      "categoryId": 26576,
+      "price": 215
+    },
+    {
+      "id": 94307,
+      "name": "Hummus with PERI-PERI Drizzle (V)",
+      "description": "Pour Smoky PERi-PERi Oil Over Creamy Hummus and Dig in with Strips Of Warm Pita",
+      "images": [],
+      "categoryId": 26576,
+      "price": 215
+    },
+    {
+      "id": 94310,
+      "name": "Red Pepper Dip (V)",
+      "description": "Dive Into Temping Roasted Red Pepper and Chili Spice Dip with Warm Pita Strips",
+      "images": [],
+      "categoryId": 26576,
+      "price": 205
+    },
+    {
+      "id": 94313,
+      "name": "Appeteaser Platter",
+      "description": "Choose any Three Appeteasers",
+      "images": [],
+      "categoryId": 26576,
+      "price": 615
+    },
+    {
+      "id": 94316,
+      "name": "All Together Now (V)",
+      "description": "Spicy Mixed Olives, Red Pepper Dip, Hummus with PERi-PERi Drizzle and Warm Pita Strips",
+      "images": [],
+      "categoryId": 26576,
+      "price": 520
+    },
+    {
+      "id": 94334,
+      "name": "PERi-PERi Wedges (P)",
+      "description": "",
+      "images": [],
+      "categoryId": 26582,
+      "price": 190
+    },
+    {
+      "id": 94337,
+      "name": "Corn-On-The-Cob",
+      "description": "",
+      "images": [],
+      "categoryId": 26582,
+      "price": 190
+    },
+    {
+      "id": 94349,
+      "name": "1/4 Chicken",
+      "description": "Quarter Chicken Marinated with PERi-PERi Sauce and Grilled",
+      "images": [],
+      "categoryId": 26588,
+      "price": 385
+    },
+    {
+      "id": 94352,
+      "name": "1/2 Chicken",
+      "description": "Half Chicken Marinated with PERi-PERi Sauce and Grilled",
+      "images": [],
+      "categoryId": 26588,
+      "price": 685
+    },
+    {
+      "id": 94355,
+      "name": "5 Chicken Wings",
+      "description": "Original Flavours or PERi-PEREi Crusted (P)",
+      "images": [],
+      "categoryId": 26588,
+      "price": 475
+    },
+    {
+      "id": 94358,
+      "name": "Wing Roulette",
+      "description": "10 Wings in PERi-PERi Flavors",
+      "images": [],
+      "categoryId": 26588,
+      "price": 750
+    },
+    {
+      "id": 94361,
+      "name": "Whole Chicken",
+      "description": "Whole Chicken Marinated in PERi-PERi Sauce and Grilled",
+      "images": [],
+      "categoryId": 26588,
+      "price": 1350
+    },
+    {
+      "id": 94364,
+      "name": "Chicken Butterfly",
+      "description": "Succulent Double Chicken Breast in Crispy Skin",
+      "images": [],
+      "categoryId": 26588,
+      "price": 495
+    },
+    {
+      "id": 94367,
+      "name": "Espetada",
+      "description": "Tender Marinated Chicken Thighs and Fresh Peppers, Served on a Skewer",
+      "images": [],
+      "categoryId": 26588,
+      "price": 695
+    },
+    {
+      "id": 94370,
+      "name": "Espetada Carnival",
+      "description": "Flame-Grilled PERi-PERi Thighs, Stuffed with Feta and Parsley, Skewered with Mixed Peppers",
+      "images": [],
+      "categoryId": 26588,
+      "price": 825
+    },
+    {
+      "id": 94373,
+      "name": "Grilled Chicken Tenders",
+      "description": "Juicy and Tender, Delicious with All Sides",
+      "images": [],
+      "categoryId": 26588,
+      "price": 200
+    },
+    {
+      "id": 94379,
+      "name": "Full Platter",
+      "description": "For 3-4 People, Whole Chicken with  2 Large or 4 Regular Rides",
+      "images": [],
+      "categoryId": 26594,
+      "price": 1765
+    },
+    {
+      "id": 94382,
+      "name": "No Bones Platter",
+      "description": "For 2-3 People, Chicken Butterfly and a Espetada, with 2 Large or 4 Regular Sides",
+      "images": [],
+      "categoryId": 26594,
+      "price": 1550
+    },
+    {
+      "id": 94385,
+      "name": "Jumbo Platter",
+      "description": "For 4-6 People, 2 Whole Chickens and 5 Large Sides",
+      "images": [],
+      "categoryId": 26594,
+      "price": 3595
+    },
+    {
+      "id": 94399,
+      "name": "Dessert",
+      "description": "",
+      "images": [],
+      "categoryId": 26600,
+      "price": 230
+    },
+    {
+      "id": 94319,
+      "name": "PERi-PERi Chips (P)",
+      "description": "Crunchy Chips with PERi-PERi Sauce",
+      "images": [],
+      "categoryId": 26579,
+      "price": 130
+    },
+    {
+      "id": 94322,
+      "name": "Spicy Rice",
+      "description": "Spicy fried rice",
+      "images": [],
+      "categoryId": 26579,
+      "price": 130
+    },
+    {
+      "id": 94325,
+      "name": "Coleslaw (M)",
+      "description": "Cabbage, Carrot, Nando&amp;#039;s Special Mayonnaise",
+      "images": [],
+      "categoryId": 26579,
+      "price": 130
+    },
+    {
+      "id": 94328,
+      "name": "Grilled Veg",
+      "description": "Grilled Assorted Vegetables",
+      "images": [],
+      "categoryId": 26579,
+      "price": 130
+    },
+    {
+      "id": 94331,
+      "name": "Garlic Bread",
+      "description": "Toasted Garlic Flavored Bread",
+      "images": [],
+      "categoryId": 26579,
+      "price": 130
+    },
+    {
+      "id": 94340,
+      "name": "Portuguese Salad",
+      "description": "Fresh Tomato, Nando&amp;#039;s Peri-Olives, Mixed Peppers, Cucumber and Onion on A Bed of Crisp Lettuce",
+      "images": [],
+      "categoryId": 26585,
+      "price": 245
+    },
+    {
+      "id": 94343,
+      "name": "Mediterranean Salad",
+      "description": "Piccolo Tomato, Cucumber, Sweet Peppers and Mixed Leaves. Sprinkled with Olives and Feta Cheese",
+      "images": [],
+      "categoryId": 26585,
+      "price": 350
+    },
+    {
+      "id": 94346,
+      "name": "Caesar Salad (M)",
+      "description": "Cos Lettuce Sprinkled with Parmesan Cheese, Caesar Dressing and Crunchy Croutons",
+      "images": [],
+      "categoryId": 26585,
+      "price": 245
+    },
+    {
+      "id": 94376,
+      "name": "Cataplana Algarve",
+      "description": "PERi-PERi Chicken Thighs, Mixed Peppers, Chickpeas, Spicy Rice and Cataplana Sauce",
+      "images": [],
+      "categoryId": 26591,
+      "price": 795
+    },
+    {
+      "id": 94388,
+      "name": "Chicken Wrap (Y)",
+      "description": "A Lightly Toasted Wrap, Generously Filled With Tender Chicken, Chili Jam, Green Leaf Lettuce and Tangy Yoghurt Sauce",
+      "images": [],
+      "categoryId": 26597,
+      "price": 335
+    },
+    {
+      "id": 94391,
+      "name": "Chicken Breast Burger (M)",
+      "description": "Served on A Toasted Portuguese Roll with Fresh Rocket, Tomato, Pickled Red Onions and Perinaise",
+      "images": [],
+      "categoryId": 26597,
+      "price": 335
+    },
+    {
+      "id": 94394,
+      "name": "Chicken Caesar Wrap (M)",
+      "description": "Served in A Toasted Wrap Full Of PERi-PERi Chicken, Crunchy Croutons, Parmesan Cheese and Sundried Tomatoes, All Smothered in Creamy Caesar Dressing",
+      "images": [],
+      "categoryId": 26597,
+      "price": 335
+    },
+    {
+      "id": 94397,
+      "name": "Chicken Pita (M)",
+      "description": "Served in A Lightly Toasted Pita, Stuffed With Chicken Tenders, Crisp Veggie Salad and Creamy Whip",
+      "images": [],
+      "categoryId": 26597,
+      "price": 335
+    }
+  ]
+}

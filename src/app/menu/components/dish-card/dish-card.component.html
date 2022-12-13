@@ -1,0 +1,11 @@
+<mat-card class="card-block">
+  <mat-card-header class="title">{{ dish.name }}</mat-card-header>
+  <div class="picture">{{ dish.images }}</div>
+  <mat-card-subtitle>{{ dish.description }}</mat-card-subtitle>
+  <mat-card-header>{{ dish.price + " UAH" }}</mat-card-header>
+  <mat-card-actions>
+    <button mat-button><mat-icon fontIcon="pageview"></mat-icon></button>
+    <button mat-button><mat-icon fontIcon="edit_square"></mat-icon></button>
+    <button mat-button><mat-icon fontIcon="delete"></mat-icon></button>
+  </mat-card-actions>
+</mat-card>
