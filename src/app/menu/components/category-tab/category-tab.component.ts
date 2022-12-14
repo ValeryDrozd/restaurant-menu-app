@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
 import Category from 'src/app/shared/interfaces/category.interface';
 import Dish from 'src/app/shared/interfaces/dish.interface';
+import { CategoryDialogComponent } from '../../dialogs/category-dialog/category-dialog.component';
+import { DishDialogComponent } from '../../dialogs/dish-dialog/dish-dialog.component';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -11,7 +15,7 @@ import { DataService } from '../../services/data.service';
 export class CategoryTabComponent implements OnInit {
   @Input() category!: Category;
   dishes: Dish[] = [];
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.dataService
@@ -19,5 +23,25 @@ export class CategoryTabComponent implements OnInit {
       .subscribe((dishes) => {
         this.dishes = dishes;
       });
+  }
+
+  openNewDishDialog(): void {
+    const dialogRef = this.dialog.open(DishDialogComponent, {
+      data: null,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      // TODO
+    });
+  }
+
+  openNewCategoryDialog(): void {
+    const dialogRef = this.dialog.open(CategoryDialogComponent, {
+      data: null,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      // TODO
+    });
   }
 }

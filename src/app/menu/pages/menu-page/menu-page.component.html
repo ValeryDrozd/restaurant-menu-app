@@ -1,5 +1,10 @@
 <div>
-  <mat-tab-group backgroundColor="accent" color="accent">
+  <mat-tab-group
+    (selectedIndexChange)="onTabChange($event)"
+    [selectedIndex]="currentCategoryIndex"
+    backgroundColor="accent"
+    color="accent"
+  >
     <mat-tab
       class="tab"
       [label]="category.name"

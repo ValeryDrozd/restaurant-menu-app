@@ -1,0 +1,15 @@
+app-menu-dialog {
+  position: relative;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirm-button {
+  background-color: #b0bec5;
+  margin: auto 0;
+  color: black;
+  font-size: 1rem;
+}

@@ -1,0 +1,22 @@
+.menu-dialog-block {
+  display: flex;
+  width: 25rem;
+  height: 25rem;
+  margin: 0 auto;
+  background-color: rgb(247, 230, 198);
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    width: 80vw;
+  }
+}
+
+.close-button {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+
+  & mat-icon {
+    color: black;
+  }
+}

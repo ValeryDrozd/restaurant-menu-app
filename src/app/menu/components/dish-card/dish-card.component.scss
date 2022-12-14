@@ -1,11 +1,10 @@
 .card-block {
   width: 20rem;
-  height: 27rem;
+  height: 28rem;
   margin: 1rem;
   padding: 0;
   justify-content: center;
   align-items: center;
-
   transition: box-shadow 0.3s ease;
   &:hover {
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.3);
@@ -40,9 +39,14 @@ mat-card-subtitle {
 }
 
 button {
-  cursor: hover;
   mat-icon {
     margin-right: 0;
+    color: rgb(177, 177, 177);
+    transition: color 0.3s ease;
+  }
+
+  &:hover mat-icon {
+    color: white;
   }
 }
 

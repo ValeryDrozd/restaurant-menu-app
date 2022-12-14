@@ -1,3 +1,11 @@
 <div class="dishes-list">
+  <div class="add-new-element-block">
+    <mat-card class="add-new" (click)="openNewDishDialog()">
+      <mat-icon fontIcon="add_to_photos" class="add-dish-icon"></mat-icon>
+    </mat-card>
+    <mat-card class="add-new" (click)="openNewCategoryDialog()">
+      <mat-icon fontIcon="add_box" class="add-dish-icon"></mat-icon>
+    </mat-card>
+  </div>
   <app-dish-card [dish]="dish" *ngFor="let dish of dishes"></app-dish-card>
 </div>

@@ -1,0 +1,35 @@
+<app-menu-dialog (close)="onClose()">
+  <form>
+    <mat-form-field color="accent">
+      <mat-label>Dish name</mat-label>
+      <input
+        name="name"
+        [(ngModel)]="dish.name"
+        matInput
+        type="text"
+        placeholder="Enter dish name"
+      />
+    </mat-form-field>
+    <mat-form-field color="accent">
+      <mat-label>Description</mat-label>
+      <input
+        name="description"
+        [(ngModel)]="dish.description"
+        matInput
+        type="text"
+        placeholder="Enter description"
+      />
+    </mat-form-field>
+    <mat-form-field color="accent">
+      <mat-label>Price</mat-label>
+      <input
+        [(ngModel)]="dish.price"
+        name="price"
+        matInput
+        type="text"
+        placeholder="Enter price"
+      />
+    </mat-form-field>
+    <button class="confirm-button" type="submit" mat-button>Confirm</button>
+  </form>
+</app-menu-dialog>
