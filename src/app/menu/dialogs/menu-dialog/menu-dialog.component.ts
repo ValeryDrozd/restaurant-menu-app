@@ -6,9 +6,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./menu-dialog.component.scss'],
 })
 export class MenuDialogComponent {
-  @Output() close = new EventEmitter();
+  @Output() dialogClose = new EventEmitter();
 
   onClose() {
-    this.close.emit();
+    this.dialogClose.emit();
   }
 }

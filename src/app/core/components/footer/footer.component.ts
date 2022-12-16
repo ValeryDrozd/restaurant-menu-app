@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-  subscibed: boolean = false;
+  subscibed = false;
 
   onSubscribe() {
     this.subscibed = true;

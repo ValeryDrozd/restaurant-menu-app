@@ -1,12 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { map, Observable, startWith } from 'rxjs';
-import Category from 'src/app/shared/interfaces/category.interface';
+
+import { Observable } from 'rxjs';
 
 import Dish from 'src/app/shared/interfaces/dish.interface';
 import DialogType from '../../enums/dialog-type';
-import { DataService } from '../../services/data.service';
 
 interface DishDialogData {
   type: DialogType;
@@ -18,7 +17,7 @@ interface DishDialogData {
   templateUrl: './dish-dialog.component.html',
   styleUrls: ['./dish-dialog.component.scss'],
 })
-export class DishDialogComponent {
+export class DishDialogComponent implements OnInit {
   dishForm!: FormGroup;
   filteredOptions!: Observable<string[]>;
 
@@ -26,6 +25,7 @@ export class DishDialogComponent {
     public dishDialogRef: MatDialogRef<DishDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DishDialogData
   ) {}
+
   ngOnInit(): void {
     this.dishForm = new FormGroup({
       name: new FormControl(''),

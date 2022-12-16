@@ -1,4 +1,4 @@
-<app-menu-dialog (close)="onClose()">
+<app-menu-dialog (dialogClose)="onClose()">
   <form [formGroup]="categoryForm" (submit)="onSubmit()">
     <mat-form-field color="accent" appearance="fill">
       <mat-label>Category name</mat-label>
