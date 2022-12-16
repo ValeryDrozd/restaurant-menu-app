@@ -1,0 +1,21 @@
+.personal-info-block {
+  display: flex;
+  padding: 3rem;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(247, 230, 198);
+  & img {
+    width: 15rem;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 1.5rem;
+    border: 1px solid white;
+    transition: transform ease 0.7s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  & label {
+    font-size: 2rem;
+  }
+}

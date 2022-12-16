@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import Category from 'src/app/shared/interfaces/category.interface';
-import { CategoryDialogComponent } from '../../dialogs/category-dialog/category-dialog.component';
 import { DataService } from '../../services/data.service';
 
 interface MenuPageQueryParams {
@@ -50,16 +49,6 @@ export class MenuPageComponent implements OnInit {
     );
   }
 
-  openNewCategoryDialog(): void {
-    const dialogRef = this.dialog.open(CategoryDialogComponent, {
-      data: null,
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      // TODO
-    });
-  }
-
   onTabChange(tabIndex: number): void {
     this.router.navigate([], {
       queryParams: {
@@ -68,5 +57,14 @@ export class MenuPageComponent implements OnInit {
     });
 
     this.currentCategoryIndex = tabIndex;
+  }
+
+  onCategoryUpdated(category: Category) {
+    this.dataService.updateCategory(category).subscribe((editedCategory) => {
+      const index = this.categories.findIndex(
+        (c) => c.id === editedCategory.id
+      );
+      this.categories.splice(index, 1, editedCategory);
+    });
   }
 }

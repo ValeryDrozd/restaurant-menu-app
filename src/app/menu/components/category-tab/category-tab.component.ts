@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import Category from 'src/app/shared/interfaces/category.interface';
 import Dish from 'src/app/shared/interfaces/dish.interface';
 import { CategoryDialogComponent } from '../../dialogs/category-dialog/category-dialog.component';
 import { DishDialogComponent } from '../../dialogs/dish-dialog/dish-dialog.component';
+import DialogType from '../../enums/dialog-type';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -14,6 +15,8 @@ import { DataService } from '../../services/data.service';
 })
 export class CategoryTabComponent implements OnInit {
   @Input() category!: Category;
+  @Output() categoryCreate = new EventEmitter();
+  @Output() categoryUpdate = new EventEmitter();
   dishes: Dish[] = [];
   constructor(private dataService: DataService, public dialog: MatDialog) {}
 
@@ -27,21 +30,38 @@ export class CategoryTabComponent implements OnInit {
 
   openNewDishDialog(): void {
     const dialogRef = this.dialog.open(DishDialogComponent, {
-      data: null,
+      data: {
+        type: DialogType.New,
+      },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      // TODO
+    dialogRef.afterClosed().subscribe((dish) => {
+      if (dish) {
+        this.onDishCreated(dish);
+      }
     });
   }
 
-  openNewCategoryDialog(): void {
+  openEditCategoryDialog(): void {
     const dialogRef = this.dialog.open(CategoryDialogComponent, {
-      data: null,
+      data: {
+        type: DialogType.Edit,
+        category: this.category,
+      },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      // TODO
+    dialogRef.afterClosed().subscribe((category) => {
+      if (category) {
+        this.categoryUpdate.emit(category);
+      }
     });
+  }
+
+  onDishCreated(dish: Dish) {
+    this.dataService
+      .addNewDish({ ...dish, categoryId: this.category.id })
+      .subscribe((newDish) => {
+        this.dishes.push(newDish);
+      });
   }
 }

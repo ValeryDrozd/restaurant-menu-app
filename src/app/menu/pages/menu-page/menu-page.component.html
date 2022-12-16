@@ -11,7 +11,10 @@
       *ngFor="let category of categories"
     >
       <ng-template matTabContent>
-        <app-category-tab [category]="category"></app-category-tab>
+        <app-category-tab
+          (categoryUpdate)="onCategoryUpdated($event)"
+          [category]="category"
+        ></app-category-tab>
       </ng-template>
     </mat-tab>
   </mat-tab-group>

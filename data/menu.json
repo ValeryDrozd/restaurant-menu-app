@@ -189,7 +189,7 @@
     },
     {
       "id": 94319,
-      "name": "PERi-PERi Chips (P)",
+      "name": "PERi-PERi Chips",
       "description": "Crunchy Chips with PERi-PERi Sauce",
       "image": null,
       "categoryId": 26579,
@@ -205,7 +205,7 @@
     },
     {
       "id": 94325,
-      "name": "Coleslaw (M)",
+      "name": "Coleslaw",
       "description": "Cabbage, Carrot, Nando&amp;#039;s Special Mayonnaise",
       "image": null,
       "categoryId": 26579,
@@ -245,7 +245,7 @@
     },
     {
       "id": 94346,
-      "name": "Caesar Salad (M)",
+      "name": "Caesar Salad",
       "description": "Cos Lettuce Sprinkled with Parmesan Cheese, Caesar Dressing and Crunchy Croutons",
       "image": null,
       "categoryId": 26585,
@@ -261,7 +261,7 @@
     },
     {
       "id": 94388,
-      "name": "Chicken Wrap (Y)",
+      "name": "Chicken Wrap",
       "description": "A Lightly Toasted Wrap, Generously Filled With Tender Chicken, Chili Jam, Green Leaf Lettuce and Tangy Yoghurt Sauce",
       "image": null,
       "categoryId": 26597,
@@ -269,7 +269,7 @@
     },
     {
       "id": 94391,
-      "name": "Chicken Breast Burger (M)",
+      "name": "Chicken Breast Burger",
       "description": "Served on A Toasted Portuguese Roll with Fresh Rocket, Tomato, Pickled Red Onions and Perinaise",
       "image": null,
       "categoryId": 26597,
@@ -277,7 +277,7 @@
     },
     {
       "id": 94394,
-      "name": "Chicken Caesar Wrap (M)",
+      "name": "Chicken Caesar Wrap",
       "description": "Served in A Toasted Wrap Full Of PERi-PERi Chicken, Crunchy Croutons, Parmesan Cheese and Sundried Tomatoes, All Smothered in Creamy Caesar Dressing",
       "image": null,
       "categoryId": 26597,
@@ -285,7 +285,7 @@
     },
     {
       "id": 94397,
-      "name": "Chicken Pita (M)",
+      "name": "Chicken Pita",
       "description": "Served in A Lightly Toasted Pita, Stuffed With Chicken Tenders, Crisp Veggie Salad and Creamy Whip",
       "image": null,
       "categoryId": 26597,

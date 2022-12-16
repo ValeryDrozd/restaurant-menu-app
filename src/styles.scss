@@ -7,7 +7,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: rgb(247, 230, 198);
+  background-color: rgb(81, 81, 81);
 }
 
 app-root {
@@ -17,4 +17,10 @@ app-root {
   & router-outlet + * {
     flex-grow: 1;
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

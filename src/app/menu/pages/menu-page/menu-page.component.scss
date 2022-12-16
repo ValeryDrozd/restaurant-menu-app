@@ -1,2 +1,9 @@
-.add-new-button {
+div {
+  background-color: rgb(247, 230, 198);
+}
+
+:host ::ng-deep mat-tab-header {
+  position: sticky;
+  top: 64px;
+  z-index: 99;
 }

@@ -3,7 +3,9 @@
     <mat-card-title>{{ dish.name }}</mat-card-title>
   </mat-card-header>
   <img class="picture" [src]="dish.image ?? '/assets/default-picture.jpeg'" />
-  <mat-card-subtitle>{{ dish.description }}</mat-card-subtitle>
+  <mat-card-subtitle
+    >{{ !dish.description ? "Try something unusual!" : dish.description }}
+  </mat-card-subtitle>
   <mat-card-header class="price-value">{{ dish.price + " ₴" }}</mat-card-header>
   <mat-card-actions>
     <button (click)="openEditDishDialog()" mat-button>

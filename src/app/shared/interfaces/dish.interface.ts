@@ -4,5 +4,5 @@ export default interface Dish {
   description: string;
   image: string | null;
   categoryId: number;
-  price: number;
+  price: number | null;
 }

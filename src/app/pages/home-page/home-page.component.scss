@@ -1,0 +1,46 @@
+.home-block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: black;
+  align-items: center;
+  padding: 1rem 0;
+
+  & .background-image {
+    background: url("/assets/main-home-photo.jpeg");
+    filter: blur(4px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  & img {
+    z-index: 1;
+    width: 95%;
+    max-width: 57rem;
+    height: auto;
+    border-radius: 2rem;
+    transition: transform 0.7s ease;
+    padding: 1rem 0;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  & label {
+    z-index: 1;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 3.5rem;
+    color: rgb(247, 230, 198);
+    margin: 0.5rem 0;
+  }
+}
+
+button {
+  z-index: 1;
+  margin: 1rem 0;
+  padding: 1.5rem;
+  background-color: #115a1c;
+  font-weight: 600;
+}

@@ -14,4 +14,25 @@
   >
   <a routerLink="/menu" routerLinkActive="active">Menu</a>
   <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  <div class="search-block">
+    <mat-form-field color="accent" class="example-full-width" appearance="fill">
+      <mat-label>Find dish!</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Number"
+        matInput
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <!-- <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option> -->
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-button><mat-icon fontIcon="search"></mat-icon></button>
+  </div>
 </mat-toolbar>
