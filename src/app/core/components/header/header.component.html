@@ -19,20 +19,27 @@
       <mat-label>Find dish!</mat-label>
       <input
         type="text"
-        placeholder="Pick one"
-        aria-label="Number"
+        placeholder="Search dish"
         matInput
         [matAutocomplete]="auto"
+        [formControl]="searchingDishControl"
       />
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <!-- <mat-option
+      <mat-autocomplete
+        [displayWith]="displayDish"
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+        (optionSelected)="onOptionSelected($event)"
+      >
+        <mat-option
           *ngFor="let option of filteredOptions | async"
           [value]="option"
         >
-          {{ option }}
-        </mat-option> -->
+          {{ option.name }}
+        </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-    <button mat-button><mat-icon fontIcon="search"></mat-icon></button>
+    <button class="search-button" mat-button>
+      <mat-icon fontIcon="search"></mat-icon>
+    </button>
   </div>
 </mat-toolbar>

@@ -51,4 +51,21 @@ export class DataService {
       category
     );
   }
+
+  public updateDish(dish: Dish): Observable<Dish> {
+    return this.httpClient.patch<Dish>(
+      `${this.baseUrl}/dishes/${dish.id}`,
+      dish
+    );
+  }
+
+  public deleteCategory(categoryId: number): Observable<Category> {
+    return this.httpClient.delete<Category>(
+      `${this.baseUrl}/categories/${categoryId}`
+    );
+  }
+
+  public deleteDish(dishId: number): Observable<Dish> {
+    return this.httpClient.delete<Dish>(`${this.baseUrl}/dishes/${dishId}`);
+  }
 }

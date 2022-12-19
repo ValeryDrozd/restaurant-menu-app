@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 
 import Category from 'src/app/shared/interfaces/category.interface';
 import Dish from 'src/app/shared/interfaces/dish.interface';
@@ -15,10 +16,14 @@ import { DataService } from '../../services/data.service';
 })
 export class CategoryTabComponent implements OnInit {
   @Input() category!: Category;
-  @Output() categoryCreate = new EventEmitter();
   @Output() categoryUpdate = new EventEmitter();
+  @Output() categoryRemove = new EventEmitter();
   dishes: Dish[] = [];
-  constructor(private dataService: DataService, public dialog: MatDialog) {}
+  constructor(
+    private dataService: DataService,
+    public dialog: MatDialog,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.dataService
@@ -63,5 +68,23 @@ export class CategoryTabComponent implements OnInit {
       .subscribe((newDish) => {
         this.dishes.push(newDish);
       });
+  }
+
+  onDishRemoved(dish: Dish) {
+    this.dataService.deleteDish(dish.id).subscribe(() => {
+      const index = this.dishes.findIndex((d) => d.id === dish.id);
+      this.dishes.splice(index, 1);
+    });
+  }
+
+  onDishUpdated(dish: Dish) {
+    this.dataService.updateDish(dish).subscribe((updatedDish) => {
+      const index = this.dishes.findIndex((d) => d.id === dish.id);
+      this.dishes.splice(index, 1, updatedDish);
+    });
+  }
+
+  onCategoryRemoved() {
+    this.categoryRemove.emit(this.category);
   }
 }

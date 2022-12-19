@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import Dish from 'src/app/shared/interfaces/dish.interface';
@@ -12,7 +12,8 @@ import DialogType from '../../enums/dialog-type';
 })
 export class DishCardComponent {
   @Input() dish!: Dish;
-
+  @Output() dishUpdate = new EventEmitter();
+  @Output() dishRemove = new EventEmitter();
   constructor(public dialog: MatDialog) {}
 
   openEditDishDialog(): void {
@@ -23,8 +24,14 @@ export class DishCardComponent {
       },
     });
 
-    dialogRef.afterClosed().subscribe(() => {
-      // TODO
+    dialogRef.afterClosed().subscribe((dish) => {
+      if (dish) {
+        this.dishUpdate.emit(dish);
+      }
     });
+  }
+
+  onDishRemoved() {
+    this.dishRemove.emit(this.dish);
   }
 }

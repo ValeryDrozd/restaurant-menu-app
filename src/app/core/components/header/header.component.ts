@@ -1,28 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Router } from '@angular/router';
+import { debounce, interval, Subject } from 'rxjs';
+import { DataService } from 'src/app/menu/services/data.service';
+import Dish from 'src/app/shared/interfaces/dish.interface';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   searchingDishControl = new FormControl('');
   options: string[] = ['One', 'Two', 'Three'];
-  //filteredOptions: Observable<string[]> = new Observable();
+  filteredOptions: Subject<Dish[]> = new Subject();
 
-  // ngOnInit() {
-  // this.filteredOptions = this.searchingDishControl.valueChanges.pipe(
-  //   startWith(''),
-  //   map((value) => this._filter(value || ''))
-  // );
-  // }
+  constructor(private dataService: DataService, private router: Router) {}
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  ngOnInit() {
+    this.searchingDishControl.valueChanges
+      .pipe(debounce(() => interval(300)))
+      .subscribe((name) => {
+        if (name && typeof name === 'string') {
+          this.dataService.getDishesByName(name).subscribe((dishes) => {
+            this.filteredOptions.next(dishes);
+          });
+        } else {
+          this.filteredOptions.next([]);
+        }
+      });
+  }
 
-    return this.options.filter((option) =>
-      option.toLowerCase().includes(filterValue)
-    );
+  displayDish(dish: Dish) {
+    return dish.name;
+  }
+
+  onOptionSelected(event: MatAutocompleteSelectedEvent) {
+    const dish: Dish = event.option.value;
+    this.router.navigate(['/menu'], {
+      queryParams: {
+        category: dish.categoryId,
+      },
+    });
   }
 }

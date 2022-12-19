@@ -11,6 +11,8 @@
     <button (click)="openEditDishDialog()" mat-button>
       <mat-icon fontIcon="edit_square"></mat-icon>
     </button>
-    <button mat-button><mat-icon fontIcon="delete"></mat-icon></button>
+    <button (click)="onDishRemoved()" mat-button>
+      <mat-icon fontIcon="delete"></mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>

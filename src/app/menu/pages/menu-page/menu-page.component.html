@@ -11,10 +11,20 @@
       *ngFor="let category of categories"
     >
       <ng-template matTabContent>
-        <app-category-tab
-          (categoryUpdate)="onCategoryUpdated($event)"
-          [category]="category"
-        ></app-category-tab>
+        <div class="categories-tab-content">
+          <button
+            (click)="openNewCategoryDialog()"
+            class="add-button"
+            mat-button
+          >
+            <mat-icon fontIcon="add"></mat-icon>
+          </button>
+          <app-category-tab
+            (categoryUpdate)="onCategoryUpdated($event)"
+            (categoryRemove)="onCategoryRemoved($event)"
+            [category]="category"
+          ></app-category-tab>
+        </div>
       </ng-template>
     </mat-tab>
   </mat-tab-group>
