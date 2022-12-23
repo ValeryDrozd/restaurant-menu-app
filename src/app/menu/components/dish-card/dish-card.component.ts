@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { MatCard } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 
 import Dish from 'src/app/shared/interfaces/dish.interface';
@@ -14,6 +22,8 @@ export class DishCardComponent {
   @Input() dish!: Dish;
   @Output() dishUpdate = new EventEmitter();
   @Output() dishRemove = new EventEmitter();
+  @ViewChild(MatCard, { read: ElementRef })
+  cardRef!: ElementRef<HTMLDivElement>;
   constructor(public dialog: MatDialog) {}
 
   openEditDishDialog(): void {

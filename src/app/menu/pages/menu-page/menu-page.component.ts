@@ -56,6 +56,7 @@ export class MenuPageComponent implements OnInit {
       queryParams: {
         category: this.categories[tabIndex]?.id,
       },
+      fragment: this.route.snapshot.fragment as string,
     });
 
     this.currentCategoryIndex = tabIndex;

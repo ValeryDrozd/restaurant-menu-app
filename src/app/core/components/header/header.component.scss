@@ -1,32 +1,56 @@
+mat-sidenav-container {
+  background: unset;
+
+  & .mat-drawer-backdrop {
+    z-index: 999;
+  }
+}
+
+a {
+  padding: 1rem;
+  color: rgb(170, 165, 165);
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgb(101, 101, 101);
+  }
+  &.active {
+    color: white;
+  }
+}
+
 mat-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+
   display: flex;
   padding: 2rem;
   background-color: rgb(81, 81, 81);
   gap: 1rem;
-  & a:not(:first-child) {
-    padding: 1rem;
-    color: rgb(170, 165, 165);
-    font-size: 1.75rem;
-    font-weight: 600;
-    text-decoration: none;
 
-    &:hover {
-      background-color: rgb(101, 101, 101);
-    }
-    &.active {
-      color: white;
-    }
-  }
-  & a:first-child {
-    margin-right: 0.5rem;
-  }
   & svg {
     margin-top: 0.5rem;
     width: 2rem;
     height: 2rem;
-    cursor: pointer;
     & path {
       fill: white;
+    }
+  }
+
+  .burger-button {
+    margin-right: 0.5rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    *:not(:first-child) {
+      display: none;
+    }
+    .burger-button {
+      cursor: pointer;
     }
   }
 }
@@ -35,15 +59,34 @@ mat-toolbar {
   display: flex;
   margin-left: auto;
   align-items: stretch;
-  & .search-button {
-    height: initial;
-    mat-icon {
-      transform: scale(1.4);
-      margin-right: 0;
-    }
+  & .search-icon {
+    transform: scale(1.4);
+    margin: auto 1rem auto 0;
   }
 }
 
 :host ::ng-deep .mat-mdc-form-field-subscript-wrapper {
   height: 0;
+}
+
+mat-sidenav-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  &.mat-drawer-container-has-open,
+  &.open {
+    z-index: 4;
+  }
+}
+
+.sidenav-block {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  & .search-block {
+    margin-top: 1rem;
+  }
 }
