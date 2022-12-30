@@ -8,6 +8,8 @@ import { CoreModule } from './core/core.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { MaterialModule } from './shared/material.module';
+import { MenuModule } from './menu/menu.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent, ContactPageComponent],
@@ -17,6 +19,8 @@ import { MaterialModule } from './shared/material.module';
     CoreModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MenuModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { MatCard } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 import Dish from 'src/app/shared/interfaces/dish.interface';
 import { DishDialogComponent } from '../../dialogs/dish-dialog/dish-dialog.component';
@@ -26,7 +27,7 @@ export class DishCardComponent {
   cardRef!: ElementRef<HTMLDivElement>;
   constructor(public dialog: MatDialog) {}
 
-  openEditDishDialog(): void {
+  public openEditDishDialog(): void {
     const dialogRef = this.dialog.open(DishDialogComponent, {
       data: {
         type: DialogType.Edit,
@@ -41,7 +42,7 @@ export class DishCardComponent {
     });
   }
 
-  onDishRemoved() {
+  public onDishRemoved() {
     this.dishRemove.emit(this.dish);
   }
 }

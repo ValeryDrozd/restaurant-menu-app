@@ -27,7 +27,7 @@ export class MenuPageComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.updateTabIndex(params);
     });
@@ -38,7 +38,7 @@ export class MenuPageComponent implements OnInit {
     });
   }
 
-  updateTabIndex(params: MenuPageQueryParams) {
+  public updateTabIndex(params: MenuPageQueryParams) {
     if (!params.category) {
       this.router.navigate([], {
         queryParams: { category: this.categories[0]?.id },
@@ -51,7 +51,7 @@ export class MenuPageComponent implements OnInit {
     );
   }
 
-  onTabChange(tabIndex: number): void {
+  public onTabChange(tabIndex: number): void {
     this.router.navigate([], {
       queryParams: {
         category: this.categories[tabIndex]?.id,
@@ -62,7 +62,7 @@ export class MenuPageComponent implements OnInit {
     this.currentCategoryIndex = tabIndex;
   }
 
-  onCategoryUpdated(category: Category) {
+  public onCategoryUpdated(category: Category) {
     this.dataService.updateCategory(category).subscribe((editedCategory) => {
       const index = this.categories.findIndex(
         (c) => c.id === editedCategory.id
@@ -71,14 +71,14 @@ export class MenuPageComponent implements OnInit {
     });
   }
 
-  onCategoryCreated(category: Category) {
+  public onCategoryCreated(category: Category) {
     this.dataService.addNewCategory(category).subscribe((newCategory) => {
       this.categories.push(newCategory);
       this.onTabChange(this.categories.length - 1);
     });
   }
 
-  openNewCategoryDialog(): void {
+  public openNewCategoryDialog(): void {
     const dialogRef = this.dialog.open(CategoryDialogComponent, {
       data: {
         type: DialogType.New,
@@ -91,7 +91,7 @@ export class MenuPageComponent implements OnInit {
     });
   }
 
-  onCategoryRemoved(category: Category): void {
+  public onCategoryRemoved(category: Category): void {
     this.dataService.deleteCategory(category.id).subscribe(() => {
       const index = this.categories.findIndex((c) => c.id === category.id);
       this.categories.splice(index, 1);

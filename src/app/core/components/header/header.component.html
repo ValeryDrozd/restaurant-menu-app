@@ -96,4 +96,11 @@
       </mat-autocomplete>
     </mat-form-field>
   </div>
+  <div
+    [ngClass]="{ active: router.url === '/login' }"
+    (click)="onLoginButtonClick()"
+    class="login-link"
+  >
+    {{ !authService.getAccessToken() ? "Login" : "Logout" }}
+  </div>
 </mat-toolbar>

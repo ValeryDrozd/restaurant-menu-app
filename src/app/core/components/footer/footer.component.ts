@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class FooterComponent {
   subscibed = false;
 
-  onSubscribe() {
+  public onSubscribe() {
     this.subscibed = true;
   }
 }

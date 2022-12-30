@@ -1,14 +1,51 @@
 {
+  "users": [
+    {
+      "email": "drozdllera@gmail.com",
+      "password": "$2a$10$hOaOa6.K7Rf4MBZ8vwb7eulkR6KSma8JLFY7DOR2mkredh4EprWaa",
+      "name": "Valeriia",
+      "id": 1,
+      "admin": true,
+      "userId": 1
+    }
+  ],
   "categories": [
-    { "name": "Appeteasers", "id": 26576 },
-    { "name": "Fino sides", "id": 26582 },
-    { "name": "Peri-peri chicken", "id": 26588 },
-    { "name": "Sharing platters", "id": 26594 },
-    { "name": "Dessert", "id": 26600 },
-    { "name": "Sides", "id": 26579 },
-    { "name": "Salads", "id": 26585 },
-    { "name": "Try someting new", "id": 26591 },
-    { "name": "Burgers, pitas, wraps", "id": 26597 }
+    {
+      "name": "Appeteasers",
+      "id": 26576
+    },
+    {
+      "name": "Fino sides",
+      "id": 26582
+    },
+    {
+      "name": "Peri-peri chicken",
+      "id": 26588
+    },
+    {
+      "name": "Sharing platters",
+      "id": 26594
+    },
+    {
+      "name": "Dessert",
+      "id": 26600
+    },
+    {
+      "name": "Sides",
+      "id": 26579
+    },
+    {
+      "name": "Salads",
+      "id": 26585
+    },
+    {
+      "name": "Try someting new",
+      "id": 26591
+    },
+    {
+      "name": "Burgers, pitas, wraps",
+      "id": 26597
+    }
   ],
   "dishes": [
     {

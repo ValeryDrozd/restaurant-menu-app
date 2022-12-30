@@ -26,7 +26,7 @@ export class DishDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DishDialogData
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.dishForm = new FormGroup({
       name: new FormControl(''),
       description: new FormControl(''),
@@ -42,10 +42,10 @@ export class DishDialogComponent implements OnInit {
     }
   }
 
-  onClose(): void {
+  public onClose(): void {
     this.dishDialogRef.close();
   }
-  onSubmit(): void {
+  public onSubmit(): void {
     this.dishDialogRef.close({
       ...this.dishForm.value,
       id: this.data.dish?.id,

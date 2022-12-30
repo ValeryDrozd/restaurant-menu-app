@@ -38,7 +38,7 @@ export class CategoryTabComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.dataService
       .getDishesByCategory(this.category.id)
       .subscribe((dishes) => {
@@ -62,7 +62,7 @@ export class CategoryTabComponent implements OnInit {
     this.route.fragment.subscribe((value) => this.scrollIntoCard(value));
   }
 
-  scrollIntoCard(fragment: string | null) {
+  public scrollIntoCard(fragment: string | null) {
     if (fragment && this.dishCards) {
       const currentCard = this.dishCards.find(
         (d) => d.dish.id === parseInt(fragment)
@@ -75,7 +75,7 @@ export class CategoryTabComponent implements OnInit {
     }
   }
 
-  openNewDishDialog(): void {
+  public openNewDishDialog(): void {
     const dialogRef = this.dialog.open(DishDialogComponent, {
       data: {
         type: DialogType.New,
@@ -89,7 +89,7 @@ export class CategoryTabComponent implements OnInit {
     });
   }
 
-  openEditCategoryDialog(): void {
+  public openEditCategoryDialog(): void {
     const dialogRef = this.dialog.open(CategoryDialogComponent, {
       data: {
         type: DialogType.Edit,
@@ -104,7 +104,7 @@ export class CategoryTabComponent implements OnInit {
     });
   }
 
-  onDishCreated(dish: Dish) {
+  public onDishCreated(dish: Dish) {
     this.dataService
       .addNewDish({ ...dish, categoryId: this.category.id })
       .subscribe((newDish) => {
@@ -112,21 +112,21 @@ export class CategoryTabComponent implements OnInit {
       });
   }
 
-  onDishRemoved(dish: Dish) {
+  public onDishRemoved(dish: Dish) {
     this.dataService.deleteDish(dish.id).subscribe(() => {
       const index = this.dishes.findIndex((d) => d.id === dish.id);
       this.dishes.splice(index, 1);
     });
   }
 
-  onDishUpdated(dish: Dish) {
+  public onDishUpdated(dish: Dish) {
     this.dataService.updateDish(dish).subscribe((updatedDish) => {
       const index = this.dishes.findIndex((d) => d.id === dish.id);
       this.dishes.splice(index, 1, updatedDish);
     });
   }
 
-  onCategoryRemoved() {
+  public onCategoryRemoved() {
     this.categoryRemove.emit(this.category);
   }
 }

@@ -22,7 +22,7 @@ export class CategoryDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: CategoryData
   ) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.categoryForm = new FormGroup({
       name: new FormControl(
         this.data.type === DialogType.Edit ? this.data.category?.name : ''
@@ -30,10 +30,10 @@ export class CategoryDialogComponent implements OnInit {
     });
   }
 
-  onClose(): void {
+  public onClose(): void {
     this.categoryDialogRef.close();
   }
-  onSubmit(): void {
+  public onSubmit(): void {
     this.categoryDialogRef.close({
       ...this.categoryForm.value,
       id: this.data.category?.id,

@@ -8,7 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class MenuDialogComponent {
   @Output() dialogClose = new EventEmitter();
 
-  onClose() {
+  public onClose() {
     this.dialogClose.emit();
   }
 }

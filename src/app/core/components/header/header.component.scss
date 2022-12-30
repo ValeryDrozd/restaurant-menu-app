@@ -6,12 +6,14 @@ mat-sidenav-container {
   }
 }
 
-a {
+a,
+div.login-link {
   padding: 1rem;
   color: rgb(170, 165, 165);
   font-size: 1.75rem;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     background-color: rgb(101, 101, 101);
@@ -45,12 +47,15 @@ mat-toolbar {
     margin-right: 0.5rem;
   }
 
-  @media screen and (max-width: 800px) {
-    *:not(:first-child) {
+  @media screen and (max-width: 885px) {
+    & > *:not(:first-child):not(:last-child) {
       display: none;
     }
     .burger-button {
       cursor: pointer;
+    }
+    .login-link {
+      margin-left: auto;
     }
   }
 }

@@ -5,6 +5,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { debounce, interval, Subject } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataService } from 'src/app/menu/services/data.service';
 import Dish from 'src/app/shared/interfaces/dish.interface';
 
@@ -22,19 +23,23 @@ export class HeaderComponent implements OnInit {
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Subject<Dish[]> = new Subject();
 
-  constructor(private dataService: DataService, private router: Router) {}
+  constructor(
+    private dataService: DataService,
+    public authService: AuthService,
+    public router: Router
+  ) {}
 
-  shouldSidenavShow() {
+  public shouldSidenavShow() {
     return this.toolbarRef.nativeElement.offsetWidth <= 800;
   }
 
-  open() {
+  public open() {
     if (this.shouldSidenavShow()) {
       this.sidenav.open();
     }
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.searchingDishControl.valueChanges
       .pipe(debounce(() => interval(300)))
       .subscribe((name) => {
@@ -48,11 +53,11 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  displayDish(dish: Dish) {
+  public displayDish(dish: Dish) {
     return dish.name;
   }
 
-  onOptionSelected(event: MatAutocompleteSelectedEvent) {
+  public onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const dish: Dish = event.option.value;
     this.router.navigate(['/menu'], {
       queryParams: {
@@ -63,5 +68,14 @@ export class HeaderComponent implements OnInit {
 
     this.searchingDishControl.setValue('');
     this.sidenav.close();
+  }
+
+  public onLoginButtonClick() {
+    if (this.authService.getAccessToken()) {
+      this.authService.logout();
+      window.location.reload();
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }

@@ -107,3 +107,7 @@ div.main-contact-block {
     text-align: center;
   }
 }
+
+:host {
+  z-index: 1;
+}

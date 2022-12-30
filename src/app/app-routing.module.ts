@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthRoutingModule } from './auth/auth-routing.module';
+import { MenuRoutingModule } from './menu/menu-routing.module';
 
 import { MenuModule } from './menu/menu.module';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
@@ -12,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), MenuModule],
+  imports: [RouterModule.forRoot(routes), MenuRoutingModule, AuthRoutingModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

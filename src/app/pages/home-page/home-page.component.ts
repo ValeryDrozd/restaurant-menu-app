@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent {
   constructor(private router: Router) {}
-  navigateToMenu() {
+  public navigateToMenu() {
     this.router.navigate(['/menu']);
   }
 }

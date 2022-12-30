@@ -1,0 +1,69 @@
+<div class="main-auth-block">
+  <div>
+    <h1 class="login-label">Sign in Restaurant app!</h1>
+    <form [formGroup]="loginForm">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Login</mat-label>
+        <input
+          formControlName="email"
+          matInput
+          type="email"
+          placeholder="Enter login"
+        />
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          type="password"
+          placeholder="Enter password"
+        />
+      </mat-form-field>
+      <button type="submit" mat-button (click)="onLogin()">Sign in!</button>
+    </form>
+  </div>
+  <div>
+    <h1>Haven't account yet?</h1>
+    <h1>Create it!</h1>
+    <form [formGroup]="signUpForm">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input
+          formControlName="name"
+          matInput
+          type="text"
+          placeholder="Enter name"
+        />
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Login</mat-label>
+        <input
+          formControlName="email"
+          matInput
+          type="text"
+          placeholder="Enter name"
+        />
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          type="password"
+          placeholder="Enter password"
+        />
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Confirm password</mat-label>
+        <input
+          formControlName="confirm_password"
+          matInput
+          type="password"
+          placeholder="Enter password again"
+        />
+      </mat-form-field>
+      <button type="submit" mat-button (click)="onRegister()">Sign up!</button>
+    </form>
+  </div>
+</div>

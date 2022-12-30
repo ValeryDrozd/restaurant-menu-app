@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MenuRoutingModule } from './menu-routing.module';
 import { MenuPageComponent } from './pages/menu-page/menu-page.component';
@@ -11,6 +11,7 @@ import { DishCardComponent } from './components/dish-card/dish-card.component';
 import { CategoryDialogComponent } from './dialogs/category-dialog/category-dialog.component';
 import { MenuDialogComponent } from './dialogs/menu-dialog/menu-dialog.component';
 import { DishDialogComponent } from './dialogs/dish-dialog/dish-dialog.component';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,8 @@ import { DishDialogComponent } from './dialogs/dish-dialog/dish-dialog.component
     MenuRoutingModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule,
     ReactiveFormsModule,
+    AuthModule,
   ],
 })
 export class MenuModule {}
