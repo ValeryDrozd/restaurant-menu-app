@@ -2,6 +2,7 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnDestroy,
   OnInit,
   Output,
   QueryList,
@@ -9,7 +10,8 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { debounceTime } from 'rxjs';
+import { debounceTime, Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 import Category from 'src/app/shared/interfaces/category.interface';
 import Dish from 'src/app/shared/interfaces/dish.interface';
@@ -24,18 +26,20 @@ import { DishCardComponent } from '../dish-card/dish-card.component';
   templateUrl: './category-tab.component.html',
   styleUrls: ['./category-tab.component.scss'],
 })
-export class CategoryTabComponent implements OnInit {
+export class CategoryTabComponent implements OnInit, OnDestroy {
   @Input() category!: Category;
   @Output() categoryUpdate = new EventEmitter();
   @Output() categoryRemove = new EventEmitter();
   @ViewChildren(DishCardComponent) dishCards!: QueryList<DishCardComponent>;
 
   dishes: Dish[] = [];
+  scrollToDishSubscribtion: Subscription[] = [];
   constructor(
     private dataService: DataService,
     public dialog: MatDialog,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {}
 
   public ngOnInit(): void {
@@ -48,9 +52,12 @@ export class CategoryTabComponent implements OnInit {
             (d) => d.id === parseInt(this.route.snapshot.fragment as string)
           )
         ) {
-          this.dishCards.changes.pipe(debounceTime(400)).subscribe(() => {
-            this.scrollIntoCard(this.route.snapshot.fragment);
-          });
+          const subscribtion = this.dishCards.changes
+            .pipe(debounceTime(400))
+            .subscribe(() => {
+              this.scrollIntoCard(this.route.snapshot.fragment);
+            });
+          this.scrollToDishSubscribtion.push(subscribtion);
         } else {
           this.router.navigate([], {
             queryParams: {
@@ -59,7 +66,16 @@ export class CategoryTabComponent implements OnInit {
           });
         }
       });
-    this.route.fragment.subscribe((value) => this.scrollIntoCard(value));
+    const subscribtion = this.route.fragment.subscribe((value) =>
+      this.scrollIntoCard(value)
+    );
+    this.scrollToDishSubscribtion.push(subscribtion);
+  }
+
+  public ngOnDestroy() {
+    this.scrollToDishSubscribtion.forEach((element) => {
+      element.unsubscribe();
+    });
   }
 
   public scrollIntoCard(fragment: string | null) {

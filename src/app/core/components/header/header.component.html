@@ -101,6 +101,6 @@
     (click)="onLoginButtonClick()"
     class="login-link"
   >
-    {{ !authService.getAccessToken() ? "Login" : "Logout" }}
+    {{ !storageService.getAccessToken() ? "Login" : "Logout" }}
   </div>
 </mat-toolbar>

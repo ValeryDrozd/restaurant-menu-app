@@ -9,6 +9,12 @@
   &:hover {
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.3);
   }
+  &.card-without-buttons {
+    height: 25rem;
+    .price-value {
+      margin-bottom: 2rem;
+    }
+  }
 }
 
 mat-card-header {
@@ -30,6 +36,7 @@ mat-card-header {
   }
   &.price-value {
     margin-top: auto;
+    margin-bottom: 1rem;
   }
 }
 

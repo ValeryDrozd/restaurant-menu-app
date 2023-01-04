@@ -1,4 +1,7 @@
-<mat-card class="card-block">
+<mat-card
+  class="card-block"
+  [ngClass]="{ 'card-without-buttons': !authService.admin }"
+>
   <mat-card-header class="title">
     <mat-card-title>{{ dish.name }}</mat-card-title>
   </mat-card-header>
@@ -7,7 +10,7 @@
     >{{ !dish.description ? "Try something unusual!" : dish.description }}
   </mat-card-subtitle>
   <mat-card-header class="price-value">{{ dish.price + " ₴" }}</mat-card-header>
-  <mat-card-actions>
+  <mat-card-actions *ngIf="authService.admin">
     <button (click)="openEditDishDialog()" mat-button>
       <mat-icon fontIcon="edit_square"></mat-icon>
     </button>

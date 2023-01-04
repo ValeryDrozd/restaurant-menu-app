@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { MenuRoutingModule } from './menu/menu-routing.module';
-
-import { MenuModule } from './menu/menu.module';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 

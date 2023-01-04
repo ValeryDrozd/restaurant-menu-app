@@ -7,6 +7,7 @@ import cors from "cors";
 
 const server = express();
 const router = jsonServer.router("data/menu.json");
+server.use(cors());
 
 server.get("/profile", auth, (req, res) => {
   const token = req.header("Authorization")
@@ -17,7 +18,11 @@ server.get("/profile", auth, (req, res) => {
     try {
       const data = jwt.verify(token, JWT_SECRET_KEY);
       const { db } = req.app;
-      let user = db.get("users").find({ email: data.email }).value();
+      const { password, ...user } = db
+        .get("users")
+        .find({ email: data.email })
+        .value();
+
       res.status(200).json(user);
     } catch (error) {
       res.status(401).json({ error: error });
@@ -28,7 +33,6 @@ server.get("/profile", auth, (req, res) => {
 });
 
 server.db = router.db;
-server.use(cors());
 
 server.use(auth);
 server.use(router);

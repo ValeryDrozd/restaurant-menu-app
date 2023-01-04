@@ -1,31 +1,30 @@
-<div>
-  <mat-tab-group
-    (selectedIndexChange)="onTabChange($event)"
-    [selectedIndex]="currentCategoryIndex"
-    backgroundColor="accent"
-    color="accent"
+<mat-tab-group
+  (selectedIndexChange)="onTabChange($event)"
+  [selectedIndex]="currentCategoryIndex"
+  backgroundColor="accent"
+  color="accent"
+>
+  <mat-tab
+    class="tab"
+    [label]="category.name"
+    *ngFor="let category of categories"
   >
-    <mat-tab
-      class="tab"
-      [label]="category.name"
-      *ngFor="let category of categories"
-    >
-      <ng-template matTabContent>
-        <div class="categories-tab-content">
-          <button
-            (click)="openNewCategoryDialog()"
-            class="add-button"
-            mat-button
-          >
-            <mat-icon fontIcon="add"></mat-icon>
-          </button>
-          <app-category-tab
-            (categoryUpdate)="onCategoryUpdated($event)"
-            (categoryRemove)="onCategoryRemoved($event)"
-            [category]="category"
-          ></app-category-tab>
-        </div>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
-</div>
+    <ng-template matTabContent>
+      <div class="categories-tab-content">
+        <button
+          *ngIf="authService.admin"
+          (click)="openNewCategoryDialog()"
+          class="add-button"
+          mat-button
+        >
+          <mat-icon fontIcon="add"></mat-icon>
+        </button>
+        <app-category-tab
+          (categoryUpdate)="onCategoryUpdated($event)"
+          (categoryRemove)="onCategoryRemoved($event)"
+          [category]="category"
+        ></app-category-tab>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

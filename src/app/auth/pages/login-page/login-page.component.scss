@@ -55,5 +55,13 @@ div.main-auth-block {
         }
       }
     }
+    .invalid-error-label {
+      margin-top: -1rem;
+      margin-bottom: 0.5rem;
+    }
   }
+}
+
+mat-error {
+  text-align: center;
 }

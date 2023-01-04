@@ -26,6 +26,14 @@
         type="number"
         placeholder="Enter price"
       />
+      <mat-error
+        *ngIf="
+          (dishForm.controls['price'].hasError('min') ||
+            dishForm.controls['price'].hasError('max')) &&
+          !dishForm.controls['price'].hasError('required')
+        "
+        >Enter price between 1 and 9999</mat-error
+      >
     </mat-form-field>
     <button type="submit" mat-button>Confirm</button>
   </form>

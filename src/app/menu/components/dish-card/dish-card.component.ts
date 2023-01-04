@@ -25,7 +25,7 @@ export class DishCardComponent {
   @Output() dishRemove = new EventEmitter();
   @ViewChild(MatCard, { read: ElementRef })
   cardRef!: ElementRef<HTMLDivElement>;
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public authService: AuthService) {}
 
   public openEditDishDialog(): void {
     const dialogRef = this.dialog.open(DishDialogComponent, {

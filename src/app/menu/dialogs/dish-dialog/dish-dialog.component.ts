@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { Observable } from 'rxjs';
@@ -28,16 +28,24 @@ export class DishDialogComponent implements OnInit {
 
   public ngOnInit(): void {
     this.dishForm = new FormGroup({
-      name: new FormControl(''),
+      name: new FormControl('', Validators.required),
       description: new FormControl(''),
-      price: new FormControl(''),
+      price: new FormControl('', [
+        Validators.required,
+        Validators.min(1),
+        Validators.max(9999),
+      ]),
     });
 
     if (this.data.type === DialogType.Edit) {
       this.dishForm = new FormGroup({
-        name: new FormControl(this.data.dish?.name),
+        name: new FormControl(this.data.dish?.name, Validators.required),
         description: new FormControl(this.data.dish?.description),
-        price: new FormControl(this.data.dish?.price),
+        price: new FormControl(this.data.dish?.price, [
+          Validators.required,
+          Validators.min(1),
+          Validators.max(9999),
+        ]),
       });
     }
   }
@@ -46,9 +54,11 @@ export class DishDialogComponent implements OnInit {
     this.dishDialogRef.close();
   }
   public onSubmit(): void {
-    this.dishDialogRef.close({
-      ...this.dishForm.value,
-      id: this.data.dish?.id,
-    });
+    if (this.dishForm.valid) {
+      this.dishDialogRef.close({
+        ...this.dishForm.value,
+        id: this.data.dish?.id,
+      });
+    }
   }
 }

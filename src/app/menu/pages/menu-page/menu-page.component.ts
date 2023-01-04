@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 import Category from 'src/app/shared/interfaces/category.interface';
 import { CategoryDialogComponent } from '../../dialogs/category-dialog/category-dialog.component';
@@ -16,19 +18,21 @@ interface MenuPageQueryParams {
   templateUrl: './menu-page.component.html',
   styleUrls: ['./menu-page.component.scss'],
 })
-export class MenuPageComponent implements OnInit {
+export class MenuPageComponent implements OnInit, OnDestroy {
   categories: Category[] = [];
   currentCategoryIndex = 0;
+  subscription!: Subscription;
 
   constructor(
     private dataService: DataService,
     private router: Router,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public authService: AuthService
   ) {}
 
   public ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
+    this.subscription = this.route.queryParams.subscribe((params) => {
       this.updateTabIndex(params);
     });
 
@@ -36,6 +40,10 @@ export class MenuPageComponent implements OnInit {
       this.categories = categories;
       this.updateTabIndex(<MenuPageQueryParams>this.route.snapshot.queryParams);
     });
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   public updateTabIndex(params: MenuPageQueryParams) {

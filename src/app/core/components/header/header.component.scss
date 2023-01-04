@@ -14,9 +14,13 @@ div.login-link {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+  &:focus-visible {
+    outline: none;
+  }
 
   &:hover {
     background-color: rgb(101, 101, 101);
+    border-radius: 0.25rem;
   }
   &.active {
     color: white;

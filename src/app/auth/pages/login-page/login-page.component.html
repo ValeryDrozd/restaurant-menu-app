@@ -10,6 +10,13 @@
           type="email"
           placeholder="Enter login"
         />
+        <mat-error
+          *ngIf="
+            loginForm.controls['email'].hasError('email') &&
+            !loginForm.controls['email'].hasError('required')
+          "
+          >Please enter a valid email address</mat-error
+        >
       </mat-form-field>
       <mat-form-field color="accent" appearance="fill">
         <mat-label>Password</mat-label>
@@ -20,6 +27,9 @@
           placeholder="Enter password"
         />
       </mat-form-field>
+      <mat-error class="invalid-error-label" *ngIf="loginError">
+        {{ loginError }}
+      </mat-error>
       <button type="submit" mat-button (click)="onLogin()">Sign in!</button>
     </form>
   </div>
@@ -42,8 +52,15 @@
           formControlName="email"
           matInput
           type="text"
-          placeholder="Enter name"
+          placeholder="Enter login"
         />
+        <mat-error
+          *ngIf="
+            signUpForm.controls['email'].hasError('email') &&
+            !signUpForm.controls['email'].hasError('required')
+          "
+          >Please enter a valid email address</mat-error
+        >
       </mat-form-field>
       <mat-form-field color="accent" appearance="fill">
         <mat-label>Password</mat-label>
@@ -53,16 +70,34 @@
           type="password"
           placeholder="Enter password"
         />
+        <mat-error
+          *ngIf="
+            signUpForm.controls['password'].hasError('minlength') &&
+            !signUpForm.controls['password'].hasError('required')
+          "
+          >Enter at least 6 symbols</mat-error
+        >
       </mat-form-field>
       <mat-form-field color="accent" appearance="fill">
         <mat-label>Confirm password</mat-label>
         <input
-          formControlName="confirm_password"
+          formControlName="confirmPassword"
           matInput
           type="password"
           placeholder="Enter password again"
         />
+        <mat-error
+          *ngIf="
+            signUpForm.controls['confirmPassword'].hasError(
+              'passwordsNotMatch'
+            ) && !signUpForm.controls['confirmPassword'].hasError('required')
+          "
+          >Password doesn't match</mat-error
+        >
       </mat-form-field>
+      <mat-error class="invalid-error-label" *ngIf="registerError">
+        {{ registerError }}
+      </mat-error>
       <button type="submit" mat-button (click)="onRegister()">Sign up!</button>
     </form>
   </div>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
 import User, { Credentials } from '../interfaces/user.interface';
+import { StorageService } from './storage.service';
 
 const TOKEN_KEY = 'TOKEN';
 
@@ -17,8 +18,11 @@ export class AuthService {
   private readonly baseUrl = 'http://localhost:3000';
   public admin = false;
 
-  constructor(private httpClient: HttpClient) {
-    if (this.getAccessToken()) {
+  constructor(
+    private httpClient: HttpClient,
+    private storageService: StorageService
+  ) {
+    if (this.storageService.getAccessToken()) {
       this.getCurrentUser().subscribe((user) => {
         this.admin = user.admin;
       });
@@ -26,12 +30,8 @@ export class AuthService {
   }
 
   private updateCurrentUserData(apiUser: ApiUser) {
-    localStorage.setItem(TOKEN_KEY, apiUser.accessToken);
+    this.storageService.setAccessToken(apiUser.accessToken);
     this.admin = apiUser.user.admin;
-  }
-
-  public getAccessToken() {
-    return localStorage.getItem(TOKEN_KEY);
   }
 
   public registerUser({
@@ -47,7 +47,7 @@ export class AuthService {
         admin: false,
       })
       .pipe(
-        tap(this.updateCurrentUserData),
+        tap((user) => this.updateCurrentUserData(user)),
         map((res) => res.user)
       );
   }
@@ -59,7 +59,7 @@ export class AuthService {
         password,
       })
       .pipe(
-        tap(this.updateCurrentUserData),
+        tap((user) => this.updateCurrentUserData(user)),
         map((res) => res.user)
       );
   }

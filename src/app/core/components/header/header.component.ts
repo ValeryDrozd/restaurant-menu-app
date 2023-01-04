@@ -1,11 +1,18 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
-import { debounce, interval, Subject } from 'rxjs';
+import { debounce, interval, Subject, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { StorageService } from 'src/app/auth/services/storage.service';
 import { DataService } from 'src/app/menu/services/data.service';
 import Dish from 'src/app/shared/interfaces/dish.interface';
 
@@ -14,10 +21,11 @@ import Dish from 'src/app/shared/interfaces/dish.interface';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   @ViewChild(MatToolbar, { read: ElementRef })
   toolbarRef!: ElementRef<HTMLDivElement>;
+  searchInputSubscribtion!: Subscription;
 
   searchingDishControl = new FormControl('');
   options: string[] = ['One', 'Two', 'Three'];
@@ -25,12 +33,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    public authService: AuthService,
+    public storageService: StorageService,
+    private authService: AuthService,
     public router: Router
   ) {}
 
   public shouldSidenavShow() {
-    return this.toolbarRef.nativeElement.offsetWidth <= 800;
+    return this.toolbarRef.nativeElement.offsetWidth <= 885;
   }
 
   public open() {
@@ -40,7 +49,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.searchingDishControl.valueChanges
+    this.searchInputSubscribtion = this.searchingDishControl.valueChanges
       .pipe(debounce(() => interval(300)))
       .subscribe((name) => {
         if (name && typeof name === 'string') {
@@ -51,6 +60,10 @@ export class HeaderComponent implements OnInit {
           this.filteredOptions.next([]);
         }
       });
+  }
+
+  ngOnDestroy(): void {
+    this.searchInputSubscribtion.unsubscribe();
   }
 
   public displayDish(dish: Dish) {
@@ -71,7 +84,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public onLoginButtonClick() {
-    if (this.authService.getAccessToken()) {
+    if (this.storageService.getAccessToken()) {
       this.authService.logout();
       window.location.reload();
     } else {
