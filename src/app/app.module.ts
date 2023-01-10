@@ -10,6 +10,8 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { MaterialModule } from './shared/material.module';
 import { MenuModule } from './menu/menu.module';
 import { AuthModule } from './auth/auth.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent, ContactPageComponent],
@@ -21,6 +23,8 @@ import { AuthModule } from './auth/auth.module';
     MaterialModule,
     MenuModule,
     AuthModule,
+    StoreModule.forRoot([], { metaReducers: [] }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],

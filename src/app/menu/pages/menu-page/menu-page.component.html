@@ -1,5 +1,4 @@
 <mat-tab-group
-  (selectedIndexChange)="onTabChange($event)"
   [selectedIndex]="currentCategoryIndex"
   backgroundColor="accent"
   color="accent"
@@ -7,7 +6,7 @@
   <mat-tab
     class="tab"
     [label]="category.name"
-    *ngFor="let category of categories"
+    *ngFor="let category of categories$ | async"
   >
     <ng-template matTabContent>
       <div class="categories-tab-content">

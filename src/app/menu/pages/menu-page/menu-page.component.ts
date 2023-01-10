@@ -1,13 +1,20 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { filter, Observable, Subscription, take } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { State } from 'src/app/reducers';
 
 import Category from 'src/app/shared/interfaces/category.interface';
 import { CategoryDialogComponent } from '../../dialogs/category-dialog/category-dialog.component';
 import DialogType from '../../enums/dialog-type';
-import { DataService } from '../../services/data.service';
+import {
+  addCategory,
+  removeCategory,
+  updateCategory,
+} from '../../store/action/category.actions';
+import { selectCategories } from '../../store/selector/category.selectors';
 
 interface MenuPageQueryParams {
   category?: string;
@@ -19,26 +26,32 @@ interface MenuPageQueryParams {
   styleUrls: ['./menu-page.component.scss'],
 })
 export class MenuPageComponent implements OnInit, OnDestroy {
-  categories: Category[] = [];
+  categories$!: Observable<Category[]>;
   currentCategoryIndex = 0;
   subscription!: Subscription;
 
   constructor(
-    private dataService: DataService,
     private router: Router,
     private route: ActivatedRoute,
     public dialog: MatDialog,
-    public authService: AuthService
+    public authService: AuthService,
+    private store: Store<State>
   ) {}
 
   public ngOnInit(): void {
+    this.categories$ = this.store.pipe(select(selectCategories));
+    this.store
+      .pipe(
+        filter((store) => !store.category.loading),
+        take(1)
+      )
+      .subscribe(() => {
+        this.updateTabIndex(
+          <MenuPageQueryParams>this.route.snapshot.queryParams
+        );
+      });
     this.subscription = this.route.queryParams.subscribe((params) => {
       this.updateTabIndex(params);
-    });
-
-    this.dataService.getCategories().subscribe((categories) => {
-      this.categories = categories;
-      this.updateTabIndex(<MenuPageQueryParams>this.route.snapshot.queryParams);
     });
   }
 
@@ -47,43 +60,47 @@ export class MenuPageComponent implements OnInit, OnDestroy {
   }
 
   public updateTabIndex(params: MenuPageQueryParams) {
-    if (!params.category) {
-      this.router.navigate([], {
-        queryParams: { category: this.categories[0]?.id },
-      });
-      return;
-    }
-    const categoryId = parseInt(params?.category ?? '');
-    this.currentCategoryIndex = this.categories.findIndex(
-      (c) => c.id === categoryId
-    );
+    this.categories$.pipe(take(1)).subscribe((categories) => {
+      if (!params.category) {
+        this.router.navigate([], {
+          queryParams: { category: categories[0]?.id },
+        });
+        return;
+      }
+      const categoryId = parseInt(params?.category ?? '');
+      this.currentCategoryIndex = categories.findIndex(
+        (c) => c.id === categoryId
+      );
+    });
   }
 
   public onTabChange(tabIndex: number): void {
-    this.router.navigate([], {
-      queryParams: {
-        category: this.categories[tabIndex]?.id,
-      },
-      fragment: this.route.snapshot.fragment as string,
-    });
+    this.categories$.pipe(take(1)).subscribe((categories) => {
+      this.router.navigate([], {
+        queryParams: {
+          category: categories[tabIndex]?.id,
+        },
+        fragment: this.route.snapshot.fragment as string,
+      });
 
-    this.currentCategoryIndex = tabIndex;
+      this.currentCategoryIndex = tabIndex;
+    });
   }
 
   public onCategoryUpdated(category: Category) {
-    this.dataService.updateCategory(category).subscribe((editedCategory) => {
-      const index = this.categories.findIndex(
-        (c) => c.id === editedCategory.id
-      );
-      this.categories.splice(index, 1, editedCategory);
-    });
+    this.store.dispatch(updateCategory({ category }));
   }
 
   public onCategoryCreated(category: Category) {
-    this.dataService.addNewCategory(category).subscribe((newCategory) => {
-      this.categories.push(newCategory);
-      this.onTabChange(this.categories.length - 1);
-    });
+    this.store.dispatch(addCategory({ category }));
+    this.store
+      .pipe(
+        filter((store) => !store.category.loading),
+        take(1)
+      )
+      .subscribe(({ category }) => {
+        this.onTabChange(category.categories.length - 1);
+      });
   }
 
   public openNewCategoryDialog(): void {
@@ -100,10 +117,7 @@ export class MenuPageComponent implements OnInit, OnDestroy {
   }
 
   public onCategoryRemoved(category: Category): void {
-    this.dataService.deleteCategory(category.id).subscribe(() => {
-      const index = this.categories.findIndex((c) => c.id === category.id);
-      this.categories.splice(index, 1);
-      this.onTabChange(0);
-    });
+    this.store.dispatch(removeCategory({ id: category.id }));
+    this.onTabChange(0);
   }
 }

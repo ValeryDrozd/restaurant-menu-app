@@ -12,6 +12,15 @@ import { CategoryDialogComponent } from './dialogs/category-dialog/category-dial
 import { MenuDialogComponent } from './dialogs/menu-dialog/menu-dialog.component';
 import { DishDialogComponent } from './dialogs/dish-dialog/dish-dialog.component';
 import { AuthModule } from '../auth/auth.module';
+import { StoreModule } from '@ngrx/store';
+import {
+  categoriesReducer,
+  categoryFeatureKey,
+} from './store/reducer/category.reducer';
+import { dishesReducer, dishFeatureKey } from './store/reducer/dish.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CategoryEffects } from './store/effect/category.effects';
+import { DishEffects } from './store/effect/dish.effects';
 
 @NgModule({
   declarations: [
@@ -29,6 +38,9 @@ import { AuthModule } from '../auth/auth.module';
     HttpClientModule,
     ReactiveFormsModule,
     AuthModule,
+    StoreModule.forFeature(categoryFeatureKey, categoriesReducer),
+    StoreModule.forFeature(dishFeatureKey, dishesReducer),
+    EffectsModule.forFeature([CategoryEffects, DishEffects]),
   ],
 })
 export class MenuModule {}

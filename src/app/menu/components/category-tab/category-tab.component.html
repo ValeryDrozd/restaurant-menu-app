@@ -16,6 +16,6 @@
     (dishRemove)="onDishRemoved($event)"
     (dishUpdate)="onDishUpdated($event)"
     [dish]="dish"
-    *ngFor="let dish of dishes"
+    *ngFor="let dish of dishes$ | async"
   ></app-dish-card>
 </div>

@@ -10,15 +10,23 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { debounceTime, Subscription } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { debounceTime, filter, Observable, Subscription, take } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { State } from 'src/app/reducers';
 
 import Category from 'src/app/shared/interfaces/category.interface';
 import Dish from 'src/app/shared/interfaces/dish.interface';
 import { CategoryDialogComponent } from '../../dialogs/category-dialog/category-dialog.component';
 import { DishDialogComponent } from '../../dialogs/dish-dialog/dish-dialog.component';
 import DialogType from '../../enums/dialog-type';
-import { DataService } from '../../services/data.service';
+import {
+  addDish,
+  fetchDishes,
+  removeDish,
+  updateDish,
+} from '../../store/action/dish.actions';
+import { selectDishes } from '../../store/selector/dish.selectors';
 import { DishCardComponent } from '../dish-card/dish-card.component';
 
 @Component({
@@ -32,23 +40,29 @@ export class CategoryTabComponent implements OnInit, OnDestroy {
   @Output() categoryRemove = new EventEmitter();
   @ViewChildren(DishCardComponent) dishCards!: QueryList<DishCardComponent>;
 
-  dishes: Dish[] = [];
+  dishes$!: Observable<Dish[]>;
   scrollToDishSubscribtion: Subscription[] = [];
   constructor(
-    private dataService: DataService,
     public dialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router,
-    public authService: AuthService
+    public authService: AuthService,
+    private store: Store<State>
   ) {}
 
   public ngOnInit(): void {
-    this.dataService
-      .getDishesByCategory(this.category.id)
-      .subscribe((dishes) => {
-        this.dishes = dishes;
+    this.store.dispatch(fetchDishes({ categoryId: this.category.id }));
+
+    this.dishes$ = this.store.pipe(select(selectDishes));
+    this.store
+      .pipe(
+        filter((store) => !store.dish.loading),
+        take(1)
+      )
+      .subscribe(({ dish }) => {
+        const { dishes } = dish;
         if (
-          this.dishes.find(
+          dishes.find(
             (d) => d.id === parseInt(this.route.snapshot.fragment as string)
           )
         ) {
@@ -66,6 +80,7 @@ export class CategoryTabComponent implements OnInit, OnDestroy {
           });
         }
       });
+
     const subscribtion = this.route.fragment.subscribe((value) =>
       this.scrollIntoCard(value)
     );
@@ -121,25 +136,15 @@ export class CategoryTabComponent implements OnInit, OnDestroy {
   }
 
   public onDishCreated(dish: Dish) {
-    this.dataService
-      .addNewDish({ ...dish, categoryId: this.category.id })
-      .subscribe((newDish) => {
-        this.dishes.push(newDish);
-      });
+    this.store.dispatch(addDish({ dish }));
   }
 
   public onDishRemoved(dish: Dish) {
-    this.dataService.deleteDish(dish.id).subscribe(() => {
-      const index = this.dishes.findIndex((d) => d.id === dish.id);
-      this.dishes.splice(index, 1);
-    });
+    this.store.dispatch(removeDish({ id: dish.id }));
   }
 
   public onDishUpdated(dish: Dish) {
-    this.dataService.updateDish(dish).subscribe((updatedDish) => {
-      const index = this.dishes.findIndex((d) => d.id === dish.id);
-      this.dishes.splice(index, 1, updatedDish);
-    });
+    this.store.dispatch(updateDish({ dish }));
   }
 
   public onCategoryRemoved() {
